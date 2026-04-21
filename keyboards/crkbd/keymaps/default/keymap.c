@@ -10,6 +10,14 @@
 #define KC_UNDO LCTL(KC_Z)
 #define KC_AGIN LCTL(KC_Y)
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_split_3x6_3_ex2(
+        '*', 'L', 'L', 'L', 'L', 'L', '*',   '*', 'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L', '*',   '*', 'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',             'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*', '*',   '*', '*', '*'
+    );
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3_ex2(
         KC_LALT, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_LGUI, KC_RGUI, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_RALT,
@@ -20,8 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [1] = LAYOUT_split_3x6_3_ex2(
         KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, RM_TOGG, RM_NEXT, KC_NO, KC_NO, KC_NO, KC_TRNS,
-        KC_TRNS, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_TRNS, KC_TRNS, KC_PWR, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,
-        KC_TRNS, KC_TRNS, KC_NO, KC_RALT, DF(0), DF(1), KC_NO, KC_SLEP, KC_NO, RM_VALD, RM_VALU, KC_NO, KC_TRNS,
+        KC_TRNS, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_TRNS, KC_TRNS, KC_PWR, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_TRNS,
+        KC_TRNS, KC_NO, KC_RALT, DF(0), DF(1), KC_NO, KC_SLEP, KC_NO, RM_VALD, RM_VALU, KC_NO, KC_TRNS,
         KC_NO, KC_NO, KC_NO, KC_MSTP, KC_MPLY, KC_MUTE
     ),
 
@@ -60,8 +68,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_RGUI, KC_SPC, KC_TAB, KC_NO, KC_NO, KC_NO
     )
 };
-
-#define TAPPING_TERM_PER_KEY
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
